@@ -136,4 +136,6 @@ def uploaded_file(filename):
 # Remove the old separate update route as it's now handled in edit
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    import os
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host="0.0.0.0", port=port)
