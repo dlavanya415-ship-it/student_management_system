@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Student</title>
+</head>
+<body>
+    <h1>Edit Student</h1>
+    <form action="/edit/{{ student[0] }}" method="post" enctype="multipart/form-data">
+        <input type="text" name="name" value="{{ student[1] }}" placeholder="Name" required>
+        <input type="text" name="department" value="{{ student[2] }}" placeholder="Department" required>
+        <input type="email" name="email" value="{{ student[3] }}" placeholder="Email" required>
+        <input type="file" name="photo">
+        {% if student[4] %}
+            <p>Current Photo: <img src="/uploads/{{ student[4] }}" alt="Current Photo" width="100"></p>
+        {% endif %}
+        <button type="submit">Update Student</button>
+    </form>
+    <a href="/dashboard">Back to Dashboard</a>
+</body>
+</html>

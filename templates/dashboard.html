@@ -1,0 +1,57 @@
+<h1>Student Management Dashboard</h1>
+
+<form method="get" action="/dashboard">
+
+<input name="search" placeholder="Search Student">
+<button>Search</button>
+
+</form>
+
+<h3>Add Student</h3>
+
+<form action="/add" method="post" enctype="multipart/form-data">
+
+<input name="name" placeholder="Name">
+<input name="department" placeholder="Department">
+<input name="email" placeholder="Email">
+
+<input type="file" name="photo">
+
+<button>Add Student</button>
+
+</form>
+
+<table border="1">
+
+<tr>
+<th>ID</th>
+<th>Name</th>
+<th>Department</th>
+<th>Email</th>
+<th>Photo</th>
+<th>Action</th>
+</tr>
+
+{% for s in students %}
+
+<tr>
+
+<td>{{s[0]}}</td>
+<td>{{s[1]}}</td>
+<td>{{s[2]}}</td>
+<td>{{s[3]}}</td>
+
+<td>
+<img src="/uploads/{{s[4]}}" width="50">
+</td>
+
+<td>
+<a href="/edit/{{s[0]}}">Edit</a>
+<a href="/delete/{{s[0]}}">Delete</a>
+</td>
+
+</tr>
+
+{% endfor %}
+
+</table>
